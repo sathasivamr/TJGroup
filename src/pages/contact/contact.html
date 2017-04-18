@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-searchbar (keyup)="searchEvent($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list col">
+  <ion-card *ngFor="let group of groupDetailsAndUnitDetails; let i=index" class="speaker-card">
+
+    <ion-card-header>
+      <button ion-item detail-none color="accent-color" (click)="addOrRemoveUnit(group)">
+        <ion-avatar item-left>
+          <img src="https://hst-api.wialon.com{{group.img}}">
+        </ion-avatar>
+         {{group.groupName}}
+      </button>
+    </ion-card-header>
+
+    <ion-card-content class="outer-content padd">
+      <ion-list>
+        <button ion-item> 
+          <h3 color='danger'>Vehicle Name</h3>
+        </button>
+        <button ion-item *ngFor="let unit of group.unit; let count=index">
+          <h3>{{unit.unitName}}</h3>
+        </button>
+
+
+      </ion-list>
+      <ion-list *ngIf="group.unitLength===0">
+        <button ion-item>
+          <h3>No unit under this Group</h3>
+        </button>
+
+
+      </ion-list>
+
+
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <!--<ion-col>
+        <button ion-button clear small color="primary" icon-left (click)="goToSpeakerTwitter(speaker)">
+          <ion-icon name="logo-twitter"></ion-icon>
+          Tweet
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="primary" icon-left (click)="openSpeakerShare(speaker)">
+          <ion-icon name='share-alt'></ion-icon>
+         Share
+        </button>
+      </ion-col>-->
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left (click)="addOrRemoveUnit(group)">
+          <ion-icon name='build'></ion-icon>
+              Add/Remove
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+  <ion-fab right bottom>
+    <button ion-fab mini (click)='referesh()'><ion-icon class='custom-icon' name="md-sync"></ion-icon></button>
+  </ion-fab>
+</ion-content>

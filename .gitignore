@@ -1,0 +1,50 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+*.map
+log.txt
+*.sublime-project
+*.sublime-workspace
+.idea/
+.sass-cache/
+.versions/
+coverage/
+bower_components/
+dist/
+node_modules/
+tmp/
+temp/
+typings/
+$RECYCLE.BIN/
+.io-config.json
+
+www
+
+# FIXME Check this. The file is not getting created automatically
+# dynamic config files generated at build time
+# config/config.ts
+
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+
+platforms
+plugins
+
+.travis/travis_rsa.pem
+
+# Windows builds differently and has the temporary js files.
+# Ignoring them from commits.
+
+src/**/*.js
+!src/assets/**/*.js
+!src/service-worker.js
+
+config/**/*.js*
+
+!/src/service-worker.js

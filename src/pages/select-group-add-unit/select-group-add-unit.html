@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      {{groupDetails.groupName}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content speaker-list col">
+
+
+  <ion-list>
+    <ion-list-header>Vehicle In The {{groupDetails.groupName}} Group</ion-list-header>
+    <ion-item *ngFor="let unit of groupAndUnit; let i=index;" reorder="true">
+      <ion-checkbox checked="true" (click)='removeFromGroup(i,unit.unitID)'></ion-checkbox>
+      <ion-label>{{unit.unitName}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <br><br><br>
+
+  <ion-list>
+    <ion-list-header>Vehicle Out Side Of The {{groupDetails.groupName}} Group</ion-list-header>
+    <ion-item *ngFor="let unit of newlySeleceted; let i=index;" reorder="true">
+      <ion-label>{{unit.unitName}}</ion-label>
+      <ion-checkbox checked="false" (click)='addToGroup(i,unit.unitID)'></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <!--<ion-list>
+    <ion-row>
+      <br><br>
+      <ion-col>
+        Vehicle Name
+      </ion-col>
+      <ion-col>
+        Vehicle Name
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+       
+      </ion-col>
+      <ion-col>
+        <ion-item *ngFor="let unit of groupAndUnit; let i=index;">
+          <ion-checkbox checked="true" (click)='removeFromGroup(i,unit.unitID)'></ion-checkbox>
+          <ion-label>{{unit.unitName}}</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-list>-->
+
+
+
+
+
+
+  <!--<ion-list>
+    <ion-list-header>
+      Vehicle under the {{groupDetails.groupName}} group<br>
+      <ion-searchbar (keyup)="filterFromUnSelected($event)"></ion-searchbar>
+    </ion-list-header>
+    <ion-item *ngFor="let unit of groupAndUnit; let i=index;">
+      <ion-label>{{unit.unitName}}</ion-label>
+      <ion-checkbox checked="true" (click)='removeFromGroup(i,unit.unitID)'></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <br><br>
+  <ion-list>
+    <ion-list-header>
+      Vehicle not in {{groupDetails.groupName}} group <br>
+      <ion-searchbar (keyup)="filterFromSelected($event)"></ion-searchbar>
+    </ion-list-header>
+    <ion-item *ngFor="let unit of newlySeleceted; let i=index;">
+      <ion-label>{{unit.unitName}}</ion-label>
+      <ion-checkbox checked="false" (click)='addToGroup(i,unit.unitID)'></ion-checkbox>
+    </ion-item>
+  </ion-list>-->
+
+  <ion-fab right bottom>
+    <button ion-fab mini (click)='submit()'><ion-icon class='custom-icon' name="send"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

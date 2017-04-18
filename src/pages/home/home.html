@@ -1,0 +1,11 @@
+<ion-content class="has-header login">
+  <ion-fab right bottom>
+    <button ion-fab mini *ngIf="!logout" (click)="getStart()"><ion-icon class='custom-icon' name="log-in"></ion-icon></button>
+    <button ion-fab mini *ngIf="logout" (click)="getStart()"><ion-icon class='custom-icon' name="arrow-forward"></ion-icon></button>
+    <button ion-fab mini *ngIf="logout" (click)="logoutMethod()"><ion-icon class='custom-icon' name="log-out"></ion-icon></button>
+    </ion-fab>
+    
+</ion-content>
+<!--<ion-fab right bottom>
+  <button ion-fab mini><ion-icon class='custom-icon' name="add"></ion-icon></button>
+</ion-fab>-->
